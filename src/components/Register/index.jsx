@@ -3,6 +3,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { StyledForm } from "./style";
 import { api } from "../../services/api";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const schema = yup.object().shape({
@@ -65,10 +67,11 @@ const Register = () => {
     api
       .post("/signup", newUser)
       .then(() => {
-        console.log("Conta criada com sucesso!");
+        toast.success("Conta cadastrada com sucesso");
       })
-      .catch(() => {
-        console.log("Ops! Algo deu errado");
+      .catch((err) => {
+        console.log(err);
+        toast.error("Ops! Algo deu errado");
       });
   };
 
