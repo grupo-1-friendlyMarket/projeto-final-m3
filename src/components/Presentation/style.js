@@ -6,7 +6,7 @@ export const Container = styled.div`
     height: 92vh;
     width: 50vw;
     padding-left: 20px;
-
+  
     h2{
         max-width: 300px;
         margin-left: 50px;
@@ -28,7 +28,7 @@ export const Container = styled.div`
 const animation = keyframes`
   from {
     position: absolute;
-    left: -560px;
+    left:  -560px;
     transform: scale(0.8) rotate(60deg);
   }
 
@@ -40,7 +40,22 @@ const animation = keyframes`
 
 `
 
+const animationRight = keyframes`
+  from {
+    position: absolute;
+    right:  -560px;
+    transform: scale(0.8) rotate(60deg);
+  }
+
+  to {
+    position: absolute;
+    right: 20px;
+    transform: scale(1) rotate(0deg);
+  }
+
+`
+
 export const Animation = styled.div`
-    animation: ${animation} 2s ;
+    animation: ${(props) => (props.start === "left" ? (animation) : (animationRight)) } 2s;
 `
 
