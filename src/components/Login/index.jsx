@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { api } from "../../services/api";
 import "react-toastify/dist/ReactToastify.css";
+import { LoginForm } from "./style";
 
 const Login = () => {
   const { register, handleSubmit } = useForm();
@@ -21,25 +22,23 @@ const Login = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(identifyLogin)} className="loginForm">
-      <h3>Seja bem-vindo!</h3>
-      <p>Preencha os dados do login para acessar</p>
-      <label>
-        Email
-        <input type="email" {...register("email")} />
-      </label>
+    <>
+      <LoginForm onSubmit={handleSubmit(identifyLogin)}>
+        <h3>Seja bem-vindo!</h3>
+        <p>Preencha os dados do login para acessar</p>
+        <label>
+          Email
+          <input type="email" {...register("email")} />
+        </label>
 
-      <label>
-        Senha
-        <input type="password" {...register("password")} />
-      </label>
+        <label>
+          Senha
+          <input type="password" {...register("password")} />
+        </label>
 
-      <button>Entrar</button>
-
-      <div> {/*essa div fica fora do form */}
-        <p>Ainda não possui cadastro?</p>
-      </div>
-    </form>
+        <button>Entrar</button>
+      </LoginForm>
+    </>
   );
 };
 

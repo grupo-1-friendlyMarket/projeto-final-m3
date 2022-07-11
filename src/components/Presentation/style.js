@@ -20,7 +20,6 @@ export const Container = styled.div`
 
     img{
         margin-top: 40px;
-        
     }
 
 `

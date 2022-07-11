@@ -7,7 +7,7 @@ export default function Button({ handlerClick, blue, width, quadrado, title }) {
         quadrado={quadrado}
         width={width}
         blue={blue}
-        onClick={() => handlerClick()}
+        onClick={handlerClick}
       >
         {title}
       </StyledButton>

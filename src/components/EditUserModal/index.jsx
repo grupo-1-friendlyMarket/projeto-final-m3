@@ -1,12 +1,11 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { StyledForm } from "./style";
+import { CloseButton, EditForm, ModalContainer, ModalHeader } from "./style";
 import { api } from "../../services/api";
-import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 
-const Register = () => {
+export const EditUserModal = ({ user, setModal }) => {
   const schema = yup.object().shape({
     fullname: yup
       .string()
@@ -16,7 +15,6 @@ const Register = () => {
       .string()
       .email("Formato de email inválido")
       .required("Campo obrigatório"),
-    cpf: yup.string().required("Campo obrigatório"),
     cellphone: yup
       .string()
       .matches(
@@ -49,11 +47,14 @@ const Register = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const registerUser = (data) => {
+  const editUserInfo = (data) => {
+    const id = JSON.parse(localStorage.getItem("@Market:id"));
+    const token = JSON.parse(localStorage.getItem("@Market:token"));
+
     const { fullname, email, cpf, cellphone, city, user_image, password } =
       data;
 
-    const newUser = {
+    const newInfo = {
       fullname,
       email,
       cpf,
@@ -64,26 +65,32 @@ const Register = () => {
     };
 
     api
-      .post("/signup", newUser)
+      .patch(`/users/${id}`, newInfo, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then(() => {
-        toast.success("Conta cadastrada com sucesso!");
+        toast.success("Informações atualizadas com sucesso!");
       })
       .catch((err) => {
         console.log(err);
-        toast.error("Ops! Algo deu errado");
+        toast.error("Falha na atualização");
       });
   };
 
   return (
-    <>
-      <StyledForm onSubmit={handleSubmit(registerUser)}>
-        <h2>Crie sua conta</h2>
-        <p>Rapido e grátis, vamos nessa</p>
-
+    <ModalContainer>
+      <ModalHeader>
+        <h3>Atualizar informações</h3>
+        <CloseButton onClick={() => setModal(false)}>X</CloseButton>
+      </ModalHeader>
+      <EditForm onSubmit={handleSubmit(editUserInfo)}>
         <label>
           Nome
           <input
             type="text"
+            defaultValue={user.fullname}
             {...register("fullname")}
             placeholder="Digite aqui seu nome"
           />
@@ -96,6 +103,7 @@ const Register = () => {
           Email
           <input
             type="text"
+            defaultValue={user.email}
             {...register("email")}
             placeholder="Digite aqui seu email"
           />
@@ -105,9 +113,11 @@ const Register = () => {
         <label>
           CPF
           <input
+            readOnly
+            disabled
             type="number"
+            defaultValue={user.cpf}
             {...register("cpf")}
-            placeholder="Digite aqui seu cpf"
           />
         </label>
         {errors.cpf && <span className="error"> {errors.cpf.message}</span>}
@@ -115,6 +125,7 @@ const Register = () => {
         <label>
           Telefone
           <input
+            defaultValue={user.cellphone}
             {...register("cellphone")}
             placeholder="Digite aqui seu telefone"
           />
@@ -126,6 +137,7 @@ const Register = () => {
           Cidade
           <input
             type="text"
+            defaultValue={user.city}
             {...register("city")}
             placeholder="Digite aqui a cidade"
           />
@@ -136,6 +148,7 @@ const Register = () => {
           Foto
           <input
             type="text"
+            defaultValue={user.user_image}
             {...register("user_image")}
             placeholder="Insira o link da foto"
           />
@@ -145,7 +158,7 @@ const Register = () => {
         )}
 
         <label>
-          Senha
+          Nova senha
           <input
             type="password"
             {...register("password")}
@@ -168,10 +181,8 @@ const Register = () => {
           <span className="error"> {errors.confirmPassword.message}</span>
         )}
 
-        <button type="submit">CADASTRAR</button>
-      </StyledForm>
-    </>
+        <button type="submit">Atualizar informações</button>
+      </EditForm>
+    </ModalContainer>
   );
 };
-
-export default Register;

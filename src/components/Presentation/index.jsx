@@ -6,6 +6,7 @@ return(
    
     <Container>
         <>
+<<<<<<< HEAD
         {start === "left" ? (
         <>
         <h2>Compre diretamente dos seus vizinhos</h2>
@@ -24,6 +25,14 @@ return(
             </>
             )
         } 
+=======
+            <h2>Compre diretamente dos seus vizinhos</h2>
+            <p>Negocie com pessoas da sua cidade com mais segurança e proximidade do vendedor</p>
+            
+            <Animation>
+                <img alt="Imagem de apresentação" src={presentation}></img>
+            </Animation>
+>>>>>>> 9c69813e804a31fbfafe641cb1993f41d05513f0
         </>
     </Container>
     
