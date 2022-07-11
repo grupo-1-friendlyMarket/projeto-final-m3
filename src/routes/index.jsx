@@ -3,7 +3,6 @@ import Providers from "../contexts";
 import Dashboard from "../pages/Dashboard";
 import Home from "../pages/Home";
 import Perfil from "../pages/Perfil";
-import { AboutUs } from "../pages/AboutUs";
 import RegisterLogin from "../pages/Register-Login";
 
 const Routes = () => {
@@ -11,11 +10,8 @@ const Routes = () => {
     <Switch>
       <Route exact path="/">
         <Providers>
-          <Home/>
+          <Home />
         </Providers>
-      </Route>
-      <Route path="/aboutUs">
-        <AboutUs/>
       </Route>
       <Route path="/login">
         <RegisterLogin />
