@@ -5,8 +5,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
-  .aboutUsContainer {
+  .aboutusContainer {
     display: flex;
     gap: 12rem;
   }
@@ -25,14 +24,14 @@ export const Container = styled.div`
       line-height: 1.6;
       margin-bottom: 5px;
     }
+  }
 
-    h1 {
-      font-size: 22px;
-    }
+  h1 {
+    font-size: 22px;
+  }
 
-    .imgAbout {
-      width: 42rem;
-    }
+  .imgAbout {
+    width: 42rem;
   }
 
   .right {
@@ -121,7 +120,7 @@ export const Container = styled.div`
 
     .right {
       width: auto;
-      margin: 0;
+      margin: 20px;
       font-weight: 200;
     }
 
