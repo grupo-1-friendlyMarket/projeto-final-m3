@@ -5,9 +5,12 @@ import { Tabs, Tab } from "@mui/material";
 import { useState } from "react";
 import MyProducts from "../../components/MyProducts/index";
 import { Redirect } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Perfil = ({ authenticated }) => {
   const [tabValue, setTabValue] = useState(0);
+
+  const token = JSON.parse(localStorage.getItem("@Market:token"));
 
   const handleChange = (event, newValue) => {
     setTabValue(newValue);
@@ -18,8 +21,9 @@ const Perfil = ({ authenticated }) => {
     return value === index && children;
   };
 
-  if (!authenticated) {
-    return <Redirect to="/login" />;
+  if (!token) {
+    toast.error("Você precisa estar logado!");
+    return <Redirect to="/" />;
   }
 
   return (

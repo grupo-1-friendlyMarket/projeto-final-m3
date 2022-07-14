@@ -18,6 +18,25 @@ export const Container = styled.header`
     gap: 20px;
   }
 
+  .logout {
+    :hover {
+      background-color: #5c8d88;
+    }
+  }
+
+  .buttons-user {
+    display: flex;
+    gap: 20px;
+  }
+
+  .logout {
+    border-radius: 50%;
+    width: 40px;
+    border: none;
+    background-color: var(--light-blue);
+    color: white;
+  }
+
   .avatar {
     background: none;
     border: none;

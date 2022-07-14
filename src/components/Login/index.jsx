@@ -15,11 +15,16 @@ const Login = ({ setAuthenticated }) => {
     api
       .post("/login", data)
       .then((res) => {
-        const { accessToken, user } = res.data;
-        localStorage.setItem("@Market:token", JSON.stringify(accessToken));
-        localStorage.setItem("@Market:id", JSON.stringify(user.id));
+        localStorage.setItem(
+          "@Market:token",
+          JSON.stringify(res.data.accessToken)
+        );
+        localStorage.setItem("@Market:id", JSON.stringify(res.data.user.id));
+        localStorage.setItem(
+          "@Market:image",
+          JSON.stringify(res.data.user.user_image)
+        );
         setAuthenticated(true);
-
         return history.push("/perfil");
       })
       .catch(() => {
