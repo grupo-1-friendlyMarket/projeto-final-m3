@@ -7,12 +7,7 @@ import { toast } from "react-toastify";
 import { api } from "../../../../services/api";
 
 export const ModalEdit = ({ show, setShow, product }) => {
-  function handleSair() {
-    setShow(false);
-  }
-
   const token = JSON.parse(localStorage.getItem("@Market:token"));
-  const userId = JSON.parse(localStorage.getItem("@Market:id"));
 
   const schema = yup.object().shape({
     productName: yup.string().required("Campo obrigatório"),
@@ -44,11 +39,10 @@ export const ModalEdit = ({ show, setShow, product }) => {
       price,
       city,
       category,
-      userId,
     };
 
     api
-      .patch(`/products/${userId}`, editedProduct, {
+      .patch(`/products/${product.id}`, editedProduct, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -63,6 +57,10 @@ export const ModalEdit = ({ show, setShow, product }) => {
       });
   };
 
+  const handleSair = () => {
+    setShow(false);
+  };
+
   return (
     <BackGroundModal show={show}>
       <Modal show={show}>
@@ -75,7 +73,7 @@ export const ModalEdit = ({ show, setShow, product }) => {
             <input
               type="text"
               {...register("productName")}
-              placeholder={product.productName}
+              defaultValue={product.productName}
             />
           </label>
           {errors.productName && (
@@ -87,7 +85,7 @@ export const ModalEdit = ({ show, setShow, product }) => {
             <input
               type="text"
               {...register("city")}
-              placeholder={product.city}
+              defaultValue={product.city}
             />
           </label>
           {errors.city && <span className="error"> {errors.city.message}</span>}
@@ -97,7 +95,7 @@ export const ModalEdit = ({ show, setShow, product }) => {
             <input
               type="text"
               {...register("description")}
-              placeholder={product.description}
+              defaultValue={product.description}
             />
           </label>
           {errors.description && (
@@ -109,7 +107,7 @@ export const ModalEdit = ({ show, setShow, product }) => {
             <input
               type="text"
               {...register("price")}
-              placeholder={product.price}
+              defaultValue={product.price}
             />
           </label>
           {errors.price && (
@@ -121,7 +119,7 @@ export const ModalEdit = ({ show, setShow, product }) => {
             <input
               type="text"
               {...register("image")}
-              placeholder={product.image}
+              defaultValue={product.image}
             />
           </label>
           {errors.image && (
@@ -130,19 +128,13 @@ export const ModalEdit = ({ show, setShow, product }) => {
 
           <label>
             Categoria
-            <select
-              {...register("category")}
-              defaultValue={product.category}
-              name="categoria"
-            >
+            <select {...register("category")} defaultValue={product.category}>
               <option value="Esportes">Esportes</option>
               <option value="Brinquedos">Brinquedos</option>
               <option value="Veículos">Veículos</option>
               <option value="Hobbies">Hobbies</option>
               <option value="Vestuário">Vestuário</option>
-              <option value="Eletrônicos e celulares">
-                Eletrônicos e celulares
-              </option>
+              <option value="Eletronicos">Eletrônicos e celulares</option>
             </select>
           </label>
           {errors.category && (
