@@ -4,8 +4,9 @@ import { Container } from "./styles";
 import { Tabs, Tab } from "@mui/material";
 import { useState } from "react";
 import MyProducts from "../../components/MyProducts/index"
+import { Redirect } from "react-router-dom";
 
-const Perfil = () => {
+const Perfil = ({authenticated}) => {
 
   const [tabValue, setTabValue] = useState(0);
 
@@ -16,6 +17,10 @@ const Perfil = () => {
   const TabPanel = (props) => {
     const { children, value, index } = props;
     return value === index && children;
+  };
+
+  if(!authenticated){
+    return <Redirect to="/login"/>
   };
 
   return (

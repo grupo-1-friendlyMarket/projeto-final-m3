@@ -4,7 +4,7 @@ import Button from "../../../Button"
 import { BackGroundModal, Modal } from "./style"
 
 export const ModalDelete = ({product, show, setShow}) => {
-    const token = localStorage.getItem("@Market:token")
+    const token = JSON.parse(localStorage.getItem("@Market:token"))
     const id = JSON.parse(localStorage.getItem("@Market:id"))
     function handleSim(){
         api

@@ -12,7 +12,7 @@ export const ModalCadastrar = ({ show, setShow }) => {
     setShow(false);
   };
   
-  const token = localStorage.getItem("@Market:token");
+  const token = JSON.parse(localStorage.getItem("@Market:token"));
   const userId = JSON.parse(localStorage.getItem("@Market:id"));
 
   const schema = yup.object().shape({

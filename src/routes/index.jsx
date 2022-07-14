@@ -12,7 +12,7 @@ const Routes = () => {
   const [ authenticated, setAuthenticated ] = useState(false);
 
   useEffect(() => {
-    const token = JSON.parse(localStorage.getItem("@Market:token"));
+    const token = localStorage.getItem("@Market:token");
 
     if(token) {
       return setAuthenticated(true);
@@ -31,7 +31,7 @@ const Routes = () => {
         <AboutUs />
       </Route>
       <Route path="/login">
-        <LoginOrRegister />
+        <LoginOrRegister authenticated={authenticated} setAuthenticated={setAuthenticated}/>
       </Route>
       <Route path="/dashboard">
         <Providers>
@@ -40,7 +40,7 @@ const Routes = () => {
       </Route>
       <Route path="/perfil">
         <Providers>
-          <Perfil authenticated={authenticated} setAuthenticated={setAuthenticated} />
+          <Perfil authenticated={authenticated} />
         </Providers>
       </Route>
     </Switch>

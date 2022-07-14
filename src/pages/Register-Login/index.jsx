@@ -7,7 +7,7 @@ import { StyledContainer } from "./style";
 import { Redirect } from "react-router-dom";
 import background from "../../assets/background.jpg";
 
-export const LoginOrRegister = () => {
+export const LoginOrRegister = ({authenticated, setAuthenticated}) => {
   const [selectedTab, setSelectedTab] = useState(0);
 
   const handleChange = (event, newValue) => {
@@ -50,7 +50,7 @@ export const LoginOrRegister = () => {
             </Tabs>
           </Box>
           <TabPanel value={selectedTab} index={0}>
-            <Login />
+            <Login authenticated={authenticated} setAuthenticated={setAuthenticated} />
           </TabPanel>
           <TabPanel value={selectedTab} index={1}>
             <Register />
