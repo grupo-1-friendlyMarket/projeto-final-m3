@@ -1,7 +1,7 @@
 import { CatalogueProvider } from "./catalogue/catalogue";
 import { ChatProvider } from "./chat";
 import { CityProvider } from "./localization";
-import {FiltersProvider} from "./filters/filters"
+import { FiltersProvider } from "./filters/filters";
 
 function Providers({ children }) {
   return (

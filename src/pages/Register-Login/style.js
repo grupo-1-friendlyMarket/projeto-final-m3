@@ -29,6 +29,7 @@ export const StyledContainer = styled.main`
     .css-1aquho2-MuiTabs-indicator {
       border: 2px solid var(--light-blue);
     }
+
     .Mui-selected {
       color: var(--light-blue);
       font-weight: 700;
@@ -44,5 +45,5 @@ export const StyledContainer = styled.main`
 
   @media (min-width: 1000px) {
     margin-bottom: 0;
-  }
+  } ;
 `;

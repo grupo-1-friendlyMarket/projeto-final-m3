@@ -1,10 +1,8 @@
 import styled from "styled-components";
-// import { keyframes } from "styled-components";
 
 export const Container = styled.div`
   height: 100%;
   width: 50vw;
-  /* padding-left: 20px; */
 
   .titleName {
     max-width: 300px;
@@ -21,7 +19,6 @@ export const Container = styled.div`
   }
 
   img {
-    /* margin-top: 1rem; */
     width: 30rem;
     margin: 2rem 0 0 9rem;
   }
@@ -60,7 +57,6 @@ export const Container = styled.div`
       margin: 0rem 0 0 10rem;
       width: 9rem;
     }
-    
   }
 
   @media screen and (min-width: 626px) and (max-width: 1041px) {
@@ -88,22 +84,3 @@ export const Container = styled.div`
     }
   }
 `;
-
-// const animation = keyframes`
-//   from {
-//     position: absolute;
-//     left: -650px;
-//     transform: scale(0.8) rotate(60deg);
-//   }
-
-//   to {
-//     position: absolute;
-//     left: 8px;
-//     transform: scale(1) rotate(0deg);
-//   }
-
-// `;
-
-// export const Animation = styled.div`
-//   animation: ${animation} 2s;
-// `;

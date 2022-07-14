@@ -29,6 +29,7 @@ export const FiltersProvider = ({ children }) => {
       let filterList = catalogue.filter(
         (product) => product.category === category
       );
+
       setFiltered(filterList);
     }
   };

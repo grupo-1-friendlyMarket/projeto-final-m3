@@ -122,6 +122,7 @@ const Register = () => {
         {errors.cellphone && (
           <span className="error"> {errors.cellphone.message}</span>
         )}
+
         <label>
           Cidade
           <StyledInput
@@ -168,9 +169,12 @@ const Register = () => {
           <span className="error"> {errors.confirmPassword.message}</span>
         )}
 
-        <Button title="CADASTRAR" type="submit" width="210" quadrado="quadrado">
-          
-        </Button>
+        <Button
+          title="CADASTRAR"
+          type="submit"
+          width="210"
+          quadrado="quadrado"
+        ></Button>
       </RegisterForm>
     </>
   );

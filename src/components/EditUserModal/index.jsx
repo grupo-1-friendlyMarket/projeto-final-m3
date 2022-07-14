@@ -4,6 +4,7 @@ import * as yup from "yup";
 import { CloseButton, EditForm, ModalContainer, ModalHeader } from "./style";
 import { api } from "../../services/api";
 import { toast } from "react-toastify";
+import Button from "../Button";
 
 export const EditUserModal = ({ user, setModal }) => {
   const schema = yup.object().shape({
@@ -181,7 +182,7 @@ export const EditUserModal = ({ user, setModal }) => {
           <span className="error"> {errors.confirmPassword.message}</span>
         )}
 
-        <button type="submit">Atualizar informações</button>
+        <Button type="submit">Atualizar informações</Button>
       </EditForm>
     </ModalContainer>
   );

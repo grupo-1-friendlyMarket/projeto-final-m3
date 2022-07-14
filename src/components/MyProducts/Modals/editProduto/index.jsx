@@ -5,15 +5,13 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { toast } from "react-toastify";
 import { api } from "../../../../services/api";
-import {CatalogueContext} from "../../../../contexts/catalogue/catalogue"
-import { useContext } from "react";
-export const ModalEdit = ({ show, setShow, product }) => {
-    const { catalogue } = useContext(CatalogueContext);
 
+export const ModalEdit = ({ show, setShow, product }) => {
   function handleSair() {
     setShow(false);
   }
-  const token = localStorage.getItem("@Market:token");
+
+  const token = JSON.parse(localStorage.getItem("@Market:token"));
   const userId = JSON.parse(localStorage.getItem("@Market:id"));
 
   const schema = yup.object().shape({
@@ -50,19 +48,19 @@ export const ModalEdit = ({ show, setShow, product }) => {
     };
 
     api
-        .patch(`/products/${userId}`, editedProduct, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
-        .then(() => {
-          toast.success("Produto editado com sucesso!");
-          setShow(false);
-        })
-        .catch((err) => {
-          console.log(err);
-          toast.error("Ops! Algo deu errado");
-        });
+      .patch(`/products/${userId}`, editedProduct, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then(() => {
+        toast.success("Produto editado com sucesso!");
+        setShow(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error("Ops! Algo deu errado");
+      });
   };
 
   return (
@@ -77,7 +75,7 @@ export const ModalEdit = ({ show, setShow, product }) => {
             <input
               type="text"
               {...register("productName")}
-              placeholder="Nome do produto "
+              placeholder={product.productName}
             />
           </label>
           {errors.productName && (
@@ -89,7 +87,7 @@ export const ModalEdit = ({ show, setShow, product }) => {
             <input
               type="text"
               {...register("city")}
-              placeholder="Digite aqui sua cidade"
+              placeholder={product.city}
             />
           </label>
           {errors.city && <span className="error"> {errors.city.message}</span>}
@@ -99,7 +97,7 @@ export const ModalEdit = ({ show, setShow, product }) => {
             <input
               type="text"
               {...register("description")}
-              placeholder="Digite aqui a descrição"
+              placeholder={product.description}
             />
           </label>
           {errors.description && (
@@ -109,34 +107,40 @@ export const ModalEdit = ({ show, setShow, product }) => {
           <label>
             Preço
             <input
-              type="number"
+              type="text"
               {...register("price")}
-              placeholder="Digite aqui o Preço"
+              placeholder={product.price}
             />
           </label>
           {errors.price && (
             <span className="error"> {errors.price.message}</span>
           )}
+
           <label>
             Foto
             <input
               type="text"
               {...register("image")}
-              placeholder="Insira o link da foto"
+              placeholder={product.image}
             />
           </label>
           {errors.image && (
             <span className="error"> {errors.image.message}</span>
           )}
+
           <label>
             Categoria
-            <select {...register("category")} name="categoria">
-              <option value="esportes">Esportes</option>
-              <option value="brinquedos">Brinquedos</option>
-              <option value="veiculos">Veículos</option>
-              <option value="hobies">Hobbies</option>
-              <option value="vestuario">Vestuário</option>
-              <option value="eletronicos e celulares">
+            <select
+              {...register("category")}
+              defaultValue={product.category}
+              name="categoria"
+            >
+              <option value="Esportes">Esportes</option>
+              <option value="Brinquedos">Brinquedos</option>
+              <option value="Veículos">Veículos</option>
+              <option value="Hobbies">Hobbies</option>
+              <option value="Vestuário">Vestuário</option>
+              <option value="Eletrônicos e celulares">
                 Eletrônicos e celulares
               </option>
             </select>

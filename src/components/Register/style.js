@@ -68,7 +68,7 @@ export const RegisterForm = styled.form`
       background-color: #8f8f8f;
       border-radius: 1.25rem;
     }
-  }
+  } ;
 `;
 
 export const StyledInput = styled.input`
