@@ -92,7 +92,7 @@ export const Filters = () => {
         </button>
         <button
           className="SearchButton"
-          onClick={() => filterProducts("Vestuario")}
+          onClick={() => filterProducts("Vestuário")}
         >
           <div className="searchImg">
             <ShoppingBagOutlinedIcon fontSize="large" />
