@@ -130,15 +130,13 @@ export const ModalCadastrar = ({ show, setShow }) => {
 
           <label>
             Categoria
-            <select {...register("category")} name="categoria">
-              <option value="esportes">Esportes</option>
-              <option value="brinquedos">Brinquedos</option>
-              <option value="veiculos">Veículos</option>
-              <option value="hobies">Hobbies</option>
-              <option value="vestuario">Vestuário</option>
-              <option value="eletronicos e celulares">
-                Eletrônicos e celulares
-              </option>
+            <select {...register("category")}>
+              <option value="Esportes">Esportes</option>
+              <option value="Brinquedos">Brinquedos</option>
+              <option value="Veiculos">Veículos</option>
+              <option value="Hobbies">Hobbies</option>
+              <option value="Vestuário">Vestuário</option>
+              <option value="Eletronicos">Eletrônicos e celulares</option>
             </select>
           </label>
           {errors.category && (
