@@ -1,9 +1,16 @@
-import './App.css';
+import { ToastContainer } from "react-toastify";
+import GlobalStyle from "./styles/global";
+import Routes from "./routes";
 
 function App() {
   return (
-    <h1>Oi!</h1>
+    <>
+      <Routes />
+      <GlobalStyle />
+      <ToastContainer />
+    </>
   );
 }
 
 export default App;
+
