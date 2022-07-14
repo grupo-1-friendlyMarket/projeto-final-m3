@@ -12,7 +12,7 @@ export const AboutUs = () => {
   return (
     <Container>
       <Header />
-      <section className="aboutUsContainer">
+      <section className="aboutusContainer">
         <div className="left">
           <span>Nossa visão</span>
           <h1>
@@ -51,7 +51,7 @@ export const AboutUs = () => {
         </div>
       </section>
       <section className="apresentation">
-        <span className="quemSomos">Quem somos</span>
+        <span>Quem somos</span>
         <div className="cardContainer">
           <div className="card">
             <picture>

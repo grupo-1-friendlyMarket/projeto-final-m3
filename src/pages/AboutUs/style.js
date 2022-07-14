@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.main`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
   .aboutusContainer {
     display: flex;
     gap: 12rem;
@@ -39,13 +40,12 @@ export const Container = styled.div`
     margin-top: 7rem;
 
     p {
-      margin-top: 3rem;
+      margin-top: 2rem;
       font-size: 18px;
     }
   }
 
   .apresentation {
-    width: 75vw;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -63,15 +63,17 @@ export const Container = styled.div`
 
   .cardContainer {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+
     margin-top: 40px;
     margin-bottom: 40px;
     gap: 2rem;
   }
 
   .card {
-    width: 36vw;
+    width: 40vw;
     display: flex;
 
     img {
@@ -90,7 +92,6 @@ export const Container = styled.div`
     width: 65%;
     margin-left: 18px;
     margin-top: 4px;
-
     h3 {
       font-size: 20px;
     }
@@ -102,7 +103,7 @@ export const Container = styled.div`
     }
   }
 
-  @media screen and (min-width: 319px) and (max-width: 1300px) {
+  @media screen and (min-width: 319px) and (max-width: 850px) {
     .aboutusContainer {
       flex-direction: column;
       width: 87vw;
@@ -112,6 +113,7 @@ export const Container = styled.div`
     .left {
       width: auto;
       text-align: center;
+      /* margin-top: 2rem; */
     }
 
     .imgAbout {
@@ -120,7 +122,7 @@ export const Container = styled.div`
 
     .right {
       width: auto;
-      margin: 20px;
+      margin: 0;
       font-weight: 200;
     }
 
