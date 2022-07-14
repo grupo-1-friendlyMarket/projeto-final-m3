@@ -18,6 +18,12 @@ export const Container = styled.header`
     gap: 20px;
   }
 
+  .logout {
+    :hover {
+      background-color: #5c8d88;
+    };
+  };
+
   .buttons-user {
     display: flex;
     gap: 20px;
