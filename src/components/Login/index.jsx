@@ -7,7 +7,7 @@ import { TextField } from "@mui/material";
 import { StyledButton } from "../Button/styled";
 import { useHistory } from "react-router-dom";
 
-const Login = ({authenticated, setAuthenticated}) => {
+const Login = ({ setAuthenticated }) => {
   const { register, handleSubmit } = useForm();
   const history = useHistory();
 
@@ -16,7 +16,6 @@ const Login = ({authenticated, setAuthenticated}) => {
       .post("/login", data)
       .then((res) => {
         const { accessToken, user } = res.data;
-        console.log(res.data)
         localStorage.setItem("@Market:token", JSON.stringify(accessToken));
         localStorage.setItem("@Market:id", JSON.stringify(user.id));
         setAuthenticated(true);
@@ -32,36 +31,32 @@ const Login = ({authenticated, setAuthenticated}) => {
     <>
       <LoginForm>
         <form onSubmit={handleSubmit(identifyLogin)}>
-            <h3>Seja bem-vinde!</h3>
-            <p>Preencha os dados do login para acessar</p>
-            <label>
-              Email
-              <TextField
-                variant="standard"
-                type="email"
-                placeholder="Email cadastrado"
-                {...register("email")}
-              />
-            </label>
+          <h3>Seja bem-vinde!</h3>
+          <p>Preencha os dados do login para acessar</p>
+          <label>
+            Email
+            <TextField
+              variant="standard"
+              type="email"
+              placeholder="Email cadastrado"
+              {...register("email")}
+            />
+          </label>
 
-            <label>
-              Senha
-              <TextField
-                variant="standard"
-                type="password"
-                placeholder="Insira sua senha"
-                {...register("password")}
-              />
-            </label>
+          <label>
+            Senha
+            <TextField
+              variant="standard"
+              type="password"
+              placeholder="Insira sua senha"
+              {...register("password")}
+            />
+          </label>
 
-            <StyledButton
-              type="submit"
-              width="250"
-              quadrado="quadrado"
-            >
-              ENTRAR
-            </StyledButton>
-          </form>
+          <StyledButton type="submit" width="250" quadrado="quadrado">
+            ENTRAR
+          </StyledButton>
+        </form>
       </LoginForm>
     </>
   );

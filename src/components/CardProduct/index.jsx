@@ -19,7 +19,11 @@ const Card = ({ index, item }) => {
             currency: "BRL",
           })}
         </h2>
-        <Button width={120} handlerClick={() => setShowElement(true)} title="Quero esse!"></Button>
+        <Button
+          width={120}
+          handlerClick={() => setShowElement(true)}
+          title="Quero esse!"
+        ></Button>
       </div>
     </Container>
   );

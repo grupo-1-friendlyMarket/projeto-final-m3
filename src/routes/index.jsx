@@ -8,16 +8,14 @@ import { LoginOrRegister } from "../pages/Register-Login";
 import { useEffect, useState } from "react";
 
 const Routes = () => {
-
-  const [ authenticated, setAuthenticated ] = useState(false);
+  const [authenticated, setAuthenticated] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem("@Market:token");
 
-    if(token) {
+    if (token) {
       return setAuthenticated(true);
-    };
-
+    }
   }, []);
 
   return (
@@ -31,7 +29,10 @@ const Routes = () => {
         <AboutUs />
       </Route>
       <Route path="/login">
-        <LoginOrRegister authenticated={authenticated} setAuthenticated={setAuthenticated}/>
+        <LoginOrRegister
+          authenticated={authenticated}
+          setAuthenticated={setAuthenticated}
+        />
       </Route>
       <Route path="/dashboard">
         <Providers>

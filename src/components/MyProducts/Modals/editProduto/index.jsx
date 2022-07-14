@@ -5,14 +5,12 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { toast } from "react-toastify";
 import { api } from "../../../../services/api";
-import {CatalogueContext} from "../../../../contexts/catalogue/catalogue"
-import { useContext } from "react";
-export const ModalEdit = ({ show, setShow, product }) => {
-    const { catalogue } = useContext(CatalogueContext);
 
+export const ModalEdit = ({ show, setShow, product }) => {
   function handleSair() {
     setShow(false);
   }
+
   const token = JSON.parse(localStorage.getItem("@Market:token"));
   const userId = JSON.parse(localStorage.getItem("@Market:id"));
 
@@ -50,19 +48,19 @@ export const ModalEdit = ({ show, setShow, product }) => {
     };
 
     api
-        .patch(`/products/${userId}`, editedProduct, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
-        .then(() => {
-          toast.success("Produto editado com sucesso!");
-          setShow(false);
-        })
-        .catch((err) => {
-          console.log(err);
-          toast.error("Ops! Algo deu errado");
-        });
+      .patch(`/products/${userId}`, editedProduct, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then(() => {
+        toast.success("Produto editado com sucesso!");
+        setShow(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error("Ops! Algo deu errado");
+      });
   };
 
   return (
@@ -117,6 +115,7 @@ export const ModalEdit = ({ show, setShow, product }) => {
           {errors.price && (
             <span className="error"> {errors.price.message}</span>
           )}
+
           <label>
             Foto
             <input
@@ -128,9 +127,14 @@ export const ModalEdit = ({ show, setShow, product }) => {
           {errors.image && (
             <span className="error"> {errors.image.message}</span>
           )}
+
           <label>
             Categoria
-            <select {...register("category")} defaultValue={product.category} name="categoria">
+            <select
+              {...register("category")}
+              defaultValue={product.category}
+              name="categoria"
+            >
               <option value="Esportes">Esportes</option>
               <option value="Brinquedos">Brinquedos</option>
               <option value="Veículos">Veículos</option>

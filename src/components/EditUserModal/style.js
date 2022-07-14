@@ -12,7 +12,7 @@ export const ModalContainer = styled.section`
   align-items: center;
   justify-content: center;
 
-  background: rgba(0,0,0, .5);
+  background: rgba(0, 0, 0, 0.5);
 `;
 
 export const ModalHeader = styled.header`

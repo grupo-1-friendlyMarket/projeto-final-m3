@@ -7,11 +7,10 @@ import { toast } from "react-toastify";
 import { api } from "../../../../services/api";
 
 export const ModalCadastrar = ({ show, setShow }) => {
-
   function handleSair() {
     setShow(false);
-  };
-  
+  }
+
   const token = JSON.parse(localStorage.getItem("@Market:token"));
   const userId = JSON.parse(localStorage.getItem("@Market:id"));
 
@@ -49,19 +48,19 @@ export const ModalCadastrar = ({ show, setShow }) => {
     };
 
     api
-        .post("/products", newProduct, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
-        .then(() => {
-          toast.success("Produto cadastrado com sucesso!");
-          setShow(false);
-        })
-        .catch((err) => {
-          console.log(err);
-          toast.error("Ops! Algo deu errado");
-        });
+      .post("/products", newProduct, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then(() => {
+        toast.success("Produto cadastrado com sucesso!");
+        setShow(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error("Ops! Algo deu errado");
+      });
   };
 
   return (
@@ -116,6 +115,7 @@ export const ModalCadastrar = ({ show, setShow }) => {
           {errors.price && (
             <span className="error"> {errors.price.message}</span>
           )}
+
           <label>
             Foto
             <input
@@ -127,6 +127,7 @@ export const ModalCadastrar = ({ show, setShow }) => {
           {errors.image && (
             <span className="error"> {errors.image.message}</span>
           )}
+
           <label>
             Categoria
             <select {...register("category")} name="categoria">

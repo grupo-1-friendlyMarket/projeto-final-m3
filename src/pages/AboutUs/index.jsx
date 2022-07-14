@@ -12,7 +12,7 @@ export const AboutUs = () => {
   return (
     <Container>
       <Header />
-      <section className="aboutusContainer">
+      <section className="aboutUsContainer">
         <div className="left">
           <span>Nossa visão</span>
           <h1>

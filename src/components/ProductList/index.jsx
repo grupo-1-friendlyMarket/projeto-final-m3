@@ -1,13 +1,10 @@
 import { useContext } from "react";
-import { CatalogueContext } from "../../contexts/catalogue/catalogue";
 import { FiltersContext } from "../../contexts/filters/filters";
 import Card from "../CardProduct";
 import { Container } from "./styles";
 
 const ProductList = () => {
-  const { catalogue } = useContext(CatalogueContext);
-
-  const { filtered, cityFilter } = useContext(FiltersContext);
+  const { cityFilter } = useContext(FiltersContext);
 
   return (
     <Container>

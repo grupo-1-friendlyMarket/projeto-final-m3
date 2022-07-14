@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
-
 export const Container = styled.div`
-
   position: fixed;
 
   width: 100%;
@@ -13,7 +11,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
 
-  background: rgba(0,0,0, .5);
+  background: rgba(0, 0, 0, 0.5);
 
   .form-container {
     max-width: 300px;

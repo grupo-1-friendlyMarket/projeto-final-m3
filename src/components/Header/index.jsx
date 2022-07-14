@@ -2,33 +2,14 @@ import { Container } from "./styles";
 import { Avatar } from "@mui/material";
 import { Link, useHistory } from "react-router-dom";
 import Button from "../Button";
-import { api } from "../../services/api";
 import MenuIcon from "@mui/icons-material/Menu";
 import StorefrontOutlinedIcon from "@mui/icons-material/StorefrontOutlined";
 import LocalLibraryOutlinedIcon from "@mui/icons-material/LocalLibraryOutlined";
-import { useEffect } from "react";
 
 export const Header = () => {
   const history = useHistory("");
 
   const token = localStorage.getItem("@Market:token");
-  const id = localStorage.getItem("@Market:id");
-
-  // const dataUser = () => {
-  //   api
-  //   .get(`users/${id}`)
-  //   .then((res) => {
-  //     const { user_image } = res;
-  //     localStorage.setItem("@Market:img", JSON.stringify(user_image));
-  //   });
-  // };
-
-  // if (id) {
-  //   dataUser();
-  // };
-
-
-  const userImg = localStorage.getItem("@Market:img");
 
   return (
     <Container>
@@ -36,9 +17,11 @@ export const Header = () => {
         Friendly Market
       </h1>
       <div className="dropdown">
-        <input type="checkbox" id="dropdown-input"/>
-        <label htmlFor="dropdown-input"><MenuIcon sx={{ fontSize: 40 }} /></label>
-        
+        <input type="checkbox" id="dropdown-input" />
+        <label htmlFor="dropdown-input">
+          <MenuIcon sx={{ fontSize: 40 }} />
+        </label>
+
         <div className="dropdown-content">
           <Link to="/dashboard">
             <StorefrontOutlinedIcon />
@@ -49,7 +32,6 @@ export const Header = () => {
             <LocalLibraryOutlinedIcon />
             Sobre
           </Link>
-          
         </div>
       </div>
       <div className="buttons">
@@ -66,11 +48,7 @@ export const Header = () => {
 
         {token ? (
           <button className="avatar">
-            <Avatar
-              alt="foto de perfil"
-              sx={{ bgcolor: "#83D0C8" }}
-              // src={userImg}
-            />
+            <Avatar alt="foto de perfil" sx={{ bgcolor: "#83D0C8" }} />
           </button>
         ) : (
           <Button

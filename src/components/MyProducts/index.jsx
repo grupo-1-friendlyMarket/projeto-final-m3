@@ -1,34 +1,26 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { ContainerMyProducts, StyledH2 } from "./style";
 import { useEffect, useState } from "react";
 import { CardMyProduct } from "./cardMyProduct";
-import Button from '../Button/index';
+import Button from "../Button/index";
 import { ModalCadastrar } from "./Modals/cadastrarProduto";
 import { api } from "../../services/api";
-// import { useContext } from "react";
-// import { CatalogueContext } from "../../contexts/catalogue/catalogue";
-
 
 const MyProducts = () => {
-
-  const [ show, setShow ] = useState(false);
-  // const { catalogue } = useContext(CatalogueContext)
-  const [ userData, setUserData ] = useState({});
-  const [ userProducts, setUserProducts ] = useState([]);
+  const [show, setShow] = useState(false);
+  const [userProducts, setUserProducts] = useState([]);
   const id = JSON.parse(localStorage.getItem("@Market:id"));
-  // const filtered = catalogue.filter((item) => item.userId === id)
 
   useEffect(() => {
     api
-    .get(`products?userId=${id}`)
-    .then((res) => {
-      setUserProducts(res.data)
-    })
-    .catch((err) => console.log(err))
-  }, [userProducts])
-  
+      .get(`products?userId=${id}`)
+      .then((res) => {
+        setUserProducts(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, [userProducts]);
+
   const CadastrarProduct = () => {
-      setShow(true);
+    setShow(true);
   };
 
   return (
@@ -40,15 +32,20 @@ const MyProducts = () => {
       <div className="listContainer">
         <ul>
           {userProducts?.map((product, index) => (
-            <CardMyProduct key={index} product={product}/>
+            <CardMyProduct key={index} product={product} />
           ))}
         </ul>
       </div>
 
       <div className="btnRegisterProduct">
-        <Button width={200} blue={"blue"} handlerClick={CadastrarProduct} title={"Cadastrar Produto"}></Button>
+        <Button
+          width={200}
+          blue={"blue"}
+          handlerClick={CadastrarProduct}
+          title={"Cadastrar Produto"}
+        ></Button>
       </div>
-      <ModalCadastrar show={show} setShow={setShow}/>
+      <ModalCadastrar show={show} setShow={setShow} />
     </ContainerMyProducts>
   );
 };

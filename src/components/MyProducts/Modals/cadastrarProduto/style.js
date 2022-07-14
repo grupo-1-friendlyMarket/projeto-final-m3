@@ -30,12 +30,12 @@ export const Modal = styled.div`
   overflow-x: hidden;
 
   ::-webkit-scrollbar {
-      width: 0.5rem;
+    width: 0.5rem;
   }
 
   ::-webkit-scrollbar-thumb {
-      background-color: #8f8f8f;
-      border-radius: 1.25rem;
+    background-color: #8f8f8f;
+    border-radius: 1.25rem;
   }
 
   .btnContainer {
@@ -56,9 +56,11 @@ export const StyledForm = styled.form`
   gap: 10px;
   width: 300px;
   height: 70vh;
+
   select {
     overflow: scroll;
   }
+
   label {
     display: flex;
     flex-direction: column;
@@ -69,11 +71,13 @@ export const StyledForm = styled.form`
     color: crimson;
   }
 
-  input, select {
+  input,
+  select {
     height: 2rem;
     padding-left: 20px;
     border: 2px solid var(--grey-1);
     border-radius: 7px;
+
     :focus {
       outline: 0;
     }
@@ -91,16 +95,18 @@ export const StyledForm = styled.form`
 `;
 
 export const StyledBtnCadastro = styled.button`
-  background-color: #83D0C8;
+  background-color: #83d0c8;
   font-size: 18px;
   border: none;
   border-radius: 15px;
   color: white;
   padding: 8px;
   cursor: pointer;
+
   :hover {
     border: 2px solid #4797de;
   }
+
   :active {
     background-color: #5c8d88;
   }

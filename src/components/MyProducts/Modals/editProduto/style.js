@@ -29,14 +29,14 @@ export const Modal = styled.div`
   overflow-y: auto;
 
   ::-webkit-scrollbar {
-      width: 0.5rem;
+    width: 0.5rem;
   }
 
   ::-webkit-scrollbar-thumb {
-      background-color: #8f8f8f;
-      border-radius: 1.25rem;
+    background-color: #8f8f8f;
+    border-radius: 1.25rem;
   }
-  
+
   .btnContainer {
     display: flex;
     gap: 10px;
@@ -45,7 +45,7 @@ export const Modal = styled.div`
       margin-top: 10px;
       margin-bottom: 50px;
     }
-  };
+  }
 `;
 
 export const StyledForm = styled.form`
@@ -55,47 +55,57 @@ export const StyledForm = styled.form`
   gap: 10px;
   width: 300px;
   height: 70vh;
+
   select {
     overflow: scroll;
   }
+
   label {
     display: flex;
     flex-direction: column;
     width: 70%;
   }
+
   .error {
     color: crimson;
   }
-  input, select {
+
+  input,
+  select {
     height: 2rem;
     padding-left: 20px;
     border: 2px solid var(--grey-1);
     border-radius: 7px;
+
     :focus {
       outline: 0;
     }
   }
+
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
+
   input[type="number"] {
     -moz-appearance: textfield;
   }
 `;
 
 export const StyledBtnCadastro = styled.button`
-  background-color: #83D0C8;
+  background-color: #83d0c8;
   font-size: 18px;
   border: none;
   border-radius: 15px;
   color: white;
   padding: 8px;
   cursor: pointer;
+
   :hover {
     border: 2px solid #4797de;
   }
+
   :active {
     background-color: #5c8d88;
   }

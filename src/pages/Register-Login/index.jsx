@@ -7,7 +7,7 @@ import { StyledContainer } from "./style";
 import { Redirect } from "react-router-dom";
 import background from "../../assets/background.jpg";
 
-export const LoginOrRegister = ({authenticated, setAuthenticated}) => {
+export const LoginOrRegister = ({ authenticated, setAuthenticated }) => {
   const [selectedTab, setSelectedTab] = useState(0);
 
   const handleChange = (event, newValue) => {
@@ -20,6 +20,7 @@ export const LoginOrRegister = ({authenticated, setAuthenticated}) => {
   };
 
   const token = localStorage.getItem("@Market:token");
+
   if (token) {
     return <Redirect to="/perfil" />;
   }
@@ -50,7 +51,10 @@ export const LoginOrRegister = ({authenticated, setAuthenticated}) => {
             </Tabs>
           </Box>
           <TabPanel value={selectedTab} index={0}>
-            <Login authenticated={authenticated} setAuthenticated={setAuthenticated} />
+            <Login
+              authenticated={authenticated}
+              setAuthenticated={setAuthenticated}
+            />
           </TabPanel>
           <TabPanel value={selectedTab} index={1}>
             <Register />

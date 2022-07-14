@@ -3,7 +3,14 @@ import { useEffect, useState } from "react";
 import { api } from "../../services/api";
 import Button from "../Button";
 import { EditUserModal } from "../EditUserModal";
-import { ContainerUserInfo, InfoDiv, StyledH3, StyledP, StyledInfoP, StyledSection } from "./style";
+import {
+  ContainerUserInfo,
+  InfoDiv,
+  StyledH3,
+  StyledP,
+  StyledInfoP,
+  StyledSection,
+} from "./style";
 
 const DataUser = () => {
   const [user, setUser] = useState("");
@@ -21,7 +28,7 @@ const DataUser = () => {
   }, []);
 
   return (
-    <Paper sx={{padding: 5}}>
+    <Paper sx={{ padding: 5 }}>
       <StyledSection>
         <StyledH3>Bem vinde, {user.fullname}!</StyledH3>
         <StyledP>Gerenciar e proteger sua conta</StyledP>
@@ -48,8 +55,13 @@ const DataUser = () => {
             <StyledInfoP>{user.city}</StyledInfoP>
           </InfoDiv>
         </ContainerUserInfo>
-        
-        <Button handlerClick={() => setModal(true)} width={250} blue={'blue'} title={'EDITAR'}></Button>
+
+        <Button
+          handlerClick={() => setModal(true)}
+          width={250}
+          blue={"blue"}
+          title={"EDITAR"}
+        ></Button>
         {modal && <EditUserModal user={user} setModal={setModal} />}
       </StyledSection>
     </Paper>
