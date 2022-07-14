@@ -18,7 +18,7 @@ const Routes = () => {
       return setAuthenticated(true);
     };
 
-  }, [authenticated]);
+  }, []);
 
   return (
     <Switch>

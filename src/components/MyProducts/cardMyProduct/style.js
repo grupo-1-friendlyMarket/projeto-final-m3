@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ContainerCard = styled.div`
   min-width: 300px;
-  height: 350px;
+  height: 400px;
   padding: 15px;
   display: flex;
   flex-direction: column;

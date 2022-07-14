@@ -25,6 +25,7 @@ const DataUser = () => {
       <StyledSection>
         <StyledH3>Bem vinde, {user.fullname}!</StyledH3>
         <StyledP>Gerenciar e proteger sua conta</StyledP>
+        <img src={user.user_image} alt={user.fullname} />
         <ContainerUserInfo>
           <InfoDiv>
             <StyledInfoP>Nome</StyledInfoP>
@@ -46,12 +47,8 @@ const DataUser = () => {
             <StyledInfoP>Cidade</StyledInfoP>
             <StyledInfoP>{user.city}</StyledInfoP>
           </InfoDiv>
-          <InfoDiv>
-            <StyledInfoP>Imagem</StyledInfoP>
-            <StyledInfoP>{user.user_image}</StyledInfoP>
-          </InfoDiv>
         </ContainerUserInfo>
-        <img src={user.user_image} alt={user.fullname} />
+        
         <Button handlerClick={() => setModal(true)} width={250} blue={'blue'} title={'EDITAR'}></Button>
         {modal && <EditUserModal user={user} setModal={setModal} />}
       </StyledSection>

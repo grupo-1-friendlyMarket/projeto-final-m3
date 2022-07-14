@@ -32,7 +32,7 @@ export const ContainerMyProducts = styled.div`
       overflow-x: scroll;
       width: 100%;
       height: 65vh;
-      gap: 10px;
+      gap: 20px;
       ::-webkit-scrollbar {
         width: 0.5rem;
      };
@@ -53,7 +53,7 @@ export const ContainerMyProducts = styled.div`
         flex-wrap: wrap;
         list-style: none;
         overflow-x: hidden;
-        gap: 10px;
+        gap: 20px;
         height: 100%;
       };
     };
