@@ -12,12 +12,12 @@ const ProductList = () => {
   return (
     <Container>
       <div className="cardContainer">
-      {cityFilter.length > 0
-        ? cityFilter.map((item) => <Card key={item.id} item={item} />)
-        : filtered.length > 0
-        ? filtered.map((item) => <Card key={item.id} item={item} />)
-        : catalogue.map((item) => <Card key={item.id} item={item} />)}
-        </div>
+        {cityFilter.length > 0 ? (
+          cityFilter.map((item) => <Card key={item.id} item={item} />)
+        ) : (
+          <h1>Nenhum produto encontrado na sua região</h1>
+        )}
+      </div>
     </Container>
   );
 };
